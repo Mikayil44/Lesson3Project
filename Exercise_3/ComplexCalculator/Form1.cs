@@ -110,35 +110,42 @@ namespace ComplexCalculator
 
         private void dota_Click(object sender, EventArgs e)
         {
-            box.Text += ",";
+            if(!box.Text.EndsWith("."))
+            box.Text += ".";
         }
 
         private void sum_Click(object sender, EventArgs e)
         {
+            if (box.Text.Length != 0 && char.IsDigit(box.Text.Last()))
             box.Text += "+";
         }
 
         private void diff_Click(object sender, EventArgs e)
         {
-            if (box.Text == "0")
-                box.Text = "-";
-            else
-                box.Text += "-";
-        }
+            if (box.Text.Length != 0 && char.IsDigit(box.Text.Last()))
+            {
+                if (box.Text == "0")
+                    box.Text = "-";
+                else
+                    box.Text += "-";
+            }
 
+            }
 
         private void multi_Click(object sender, EventArgs e)
         {
+            if (box.Text.Length != 0 && char.IsDigit(box.Text.Last()))
             box.Text += "x";
         }
-
         private void div_Click(object sender, EventArgs e)
         {
+            if (box.Text.Length != 0 && char.IsDigit(box.Text.Last()))
             box.Text += "/";
         }
         private void mood_Click(object sender, EventArgs e)
         {
-            box.Text+= "%";
+            if (box.Text.Length != 0 && char.IsDigit(box.Text.Last()))
+                box.Text += "%";
         }
         private void sqrt_Click(object sender, EventArgs e)
         {
